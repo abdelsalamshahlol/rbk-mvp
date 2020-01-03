@@ -4,6 +4,7 @@ import {AnimatedSwitch} from 'react-router-transition';
 // Components
 import Home from './home';
 import Login from './Login';
+import Register from './Register';
 
 class App extends React.Component {
     constructor(props) {
@@ -31,6 +32,9 @@ class App extends React.Component {
                             <li className="nav-item">
                                 <Link className="nav-link" to="/login">Login</Link>
                             </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/register">Register</Link>
+                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -41,6 +45,7 @@ class App extends React.Component {
                     className="switch-wrapper">
                     <Route path="/" exact component={Home}/>
                     <Route path="/login" component={Login}/>
+                    <Route path="/register" component={Register}/>
                 </AnimatedSwitch>
             </Router>
         );

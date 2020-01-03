@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const aut = require('./auth');
 const users = require('../models/Users');
+require('../config/passport');
 const mongoose = require('mongoose');
 const passport = require('passport');
 
@@ -63,7 +64,7 @@ router.post('/login', aut.optional, function (req, res, next) {
       },
     });
   }
-  return passport.authenticate('local', {session: false}, (err, passportUser, info) => {
+  return passport.authenticate('local-strategy', {session: false}, (err, passportUser, info) => {
     if (err) {
       return next(err);
     }
@@ -74,8 +75,8 @@ router.post('/login', aut.optional, function (req, res, next) {
 
       return res.json({user: user.toAuthJSON()});
     }
-
-    return status(400).info;
+    // return res.end('444dfd')
+    return res.status(400).send();
   })(req, res, next);
 });
 

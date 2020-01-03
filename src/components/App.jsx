@@ -15,7 +15,7 @@ class App extends React.Component {
             <Router>
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
                     <a className="navbar-brand" href="#">
-                        App Name
+                        <img src="http://cdn.onlinewebfonts.com/svg/img_454002.png" alt="logo" width="30"/>
                     </a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -39,6 +39,7 @@ class App extends React.Component {
                     atLeave={{opacity: 0}}
                     atActive={{opacity: 1}}
                     className="switch-wrapper">
+                    <Route path="/" exact component={Home}/>
                     <Route path="/login" component={Login}/>
                 </AnimatedSwitch>
             </Router>

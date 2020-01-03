@@ -1,5 +1,4 @@
 import React from 'react';
-import {useHistory} from "react-router-dom";
 import axios from "axios";
 
 class Register extends React.Component {
@@ -19,8 +18,7 @@ class Register extends React.Component {
         let {id, value} = e.target;
         this.setState({
             [id + 'Field']: value
-        })
-        ;
+        });
     }
 
     processRegister(event) {
@@ -28,6 +26,9 @@ class Register extends React.Component {
 
         axios.post(`users/sign-up`, {email: this.state.emailField, password: this.state._passwordField})
             .then(({data}) => {
+                let {user: {token}} = data;
+                localStorage.setItem('jwt-token', token);
+
                 this.setState({
                     alert: {message: 'Account Created', type: 'success'}
                 });
@@ -35,7 +36,7 @@ class Register extends React.Component {
                 // Redirect after successful account creation
                 setTimeout(() => {
                     this.props.history.push('/login')
-                }, 800);
+                }, 1500);
 
             }).catch(err => {
             this.setState({

@@ -21,9 +21,9 @@ usersSchema.methods.setPassword = (password) => {
     }
 };
 
-usersSchema.methods.validatePassword = (password) => {
-    const hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
-    return this.hash === hash;
+usersSchema.methods.validatePassword = (password, salt, hash) => {
+    const calculatedHash = crypto.pbkdf2Sync(password, salt, 10000, 512, 'sha512').toString('hex');
+    return hash === calculatedHash;
 };
 
 usersSchema.methods.generateJWT = () => {

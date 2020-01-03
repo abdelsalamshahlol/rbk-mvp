@@ -6,7 +6,11 @@ class Login extends React.Component {
         super(props);
         this.state = {
             emailField: null,
-            _passwordField: null
+            _passwordField: null,
+            alert: {
+                message: null,
+                type: 'warning'
+            },
         }
     }
 
@@ -20,18 +24,48 @@ class Login extends React.Component {
 
     processLogin(event) {
         event.preventDefault();
-
-        axios.post(`users/login`, {email: this.state.emailField, password: this.state._passwordField})
+        let token = localStorage.getItem('jwt-token');
+        axios.post(`users/login`
+            , {email: this.state.emailField, password: this.state._passwordField}
+            , {
+                headers: {
+                    'authorization': token,
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            })
             .then(({data}) => {
-                console.log({data});
+                console.log(data)
+                this.setState({
+                    alert: {message: 'Login Successful', type: 'success'}
+                });
+
+                // Redirect after successful account log
+                setTimeout(() => {
+                    // this.props.history.push('/login')
+                }, 1500);
+
             }).catch(err => {
-            console.error(err);
+            this.setState({
+                alert: {message: err.message, type: 'danger'}
+            });
         });
     }
 
     render() {
+        let {type, message} = this.state.alert;
+        let alert = (
+            <div className={"alert alert-dismissible fade show alert-" + type} role="alert">
+                {message}
+                <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        );
+
         return (
             <div className="container">
+                {(message !== null ? alert : '')}
                 <div className="row">
                     <div className="container">
                         <h1 className="display-4 text-center">Login</h1>

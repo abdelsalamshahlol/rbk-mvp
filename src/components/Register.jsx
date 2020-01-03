@@ -1,4 +1,5 @@
 import React from 'react';
+import {useHistory} from "react-router-dom";
 import axios from "axios";
 
 class Register extends React.Component {
@@ -30,9 +31,16 @@ class Register extends React.Component {
                 this.setState({
                     alert: {message: 'Account Created', type: 'success'}
                 });
-                console.log({data});
+
+                // Redirect after successful account creation
+                setTimeout(() => {
+                    this.props.history.push('/login')
+                }, 800);
+
             }).catch(err => {
-            console.error(err);
+            this.setState({
+                alert: {message: err.message, type: 'danger'}
+            });
         });
     }
 

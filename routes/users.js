@@ -76,7 +76,7 @@ router.post('/login', aut.optional, function (req, res, next) {
       return res.json({user: user.toAuthJSON()});
     }
     // return res.end('444dfd')
-    return res.status(400).send();
+    return res.status(400).send(info);
   })(req, res, next);
 });
 

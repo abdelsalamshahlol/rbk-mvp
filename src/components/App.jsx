@@ -1,6 +1,7 @@
 import React from 'react';
 import {Route, Link, BrowserRouter as Router} from 'react-router-dom'
 import {AnimatedSwitch} from 'react-router-transition';
+
 // Components
 import Home from './home';
 import Login from './Login';

@@ -3,13 +3,16 @@ import {Route, Link, BrowserRouter as Router} from 'react-router-dom'
 import {AnimatedSwitch} from 'react-router-transition';
 
 // Components
-import Home from './home';
+import Index from './Index';
 import Login from './Login';
 import Register from './Register';
 
 class App extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            isLoggedIn: false
+        }
     }
 
     render() {
@@ -44,8 +47,8 @@ class App extends React.Component {
                     atLeave={{opacity: 0}}
                     atActive={{opacity: 1}}
                     className="switch-wrapper">
-                    <Route path="/" exact component={Home}/>
-                    <Route path="/login" component={Login}/>
+                    <Route path="/" exact component={Index}/>
+                    <Route path="/login" component={Login} thing={"sd"}/>
                     <Route path="/register" component={Register}/>
                 </AnimatedSwitch>
             </Router>

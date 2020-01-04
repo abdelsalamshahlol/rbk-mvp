@@ -1,23 +1,23 @@
 import React from 'react';
-import Link from 'react-router-dom';
 
-const Home = () => {
-    return (
-        <div>
-            <div className="jumbotron">
-                <h1 className="display-4">Welcome</h1>
-                <p className="lead">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi est in iste nobis rem ullam. Dicta
-                    quaerat sapiente veniam voluptate. Doloremque eaque esse ex facilis, magni necessitatibus quibusdam
-                    quidem saepe!
-                </p>
-                <hr className="my-4"/>
-                <p>It uses utility classes for typography and spacing to space content out within the larger
-                    container.</p>
-                <a className="btn btn-primary btn-lg" href="/" role="button">Learn more</a>
+class Home extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <div>
+                <h1 className="display-1">Welcome Back {this.props.email}</h1>
+                <div className={"container"}>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto atque cumque, earum enim est
+                        eveniet, incidunt laudantium libero odit porro quidem quisquam reiciendis rem, sequi sint? Culpa
+                        iure nulla tempore.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto aut, dicta dolore error, esse et ex excepturi ipsa molestias optio provident quam quas, quod quos sint suscipit vel vitae voluptates.</p>
+                </div>
             </div>
-        </div>
-    );
-};
+        )
+    }
+}
 
 export default Home;

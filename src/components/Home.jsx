@@ -13,7 +13,9 @@ class Home extends React.Component {
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto atque cumque, earum enim est
                         eveniet, incidunt laudantium libero odit porro quidem quisquam reiciendis rem, sequi sint? Culpa
                         iure nulla tempore.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto aut, dicta dolore error, esse et ex excepturi ipsa molestias optio provident quam quas, quod quos sint suscipit vel vitae voluptates.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto aut, dicta dolore error,
+                        esse et ex excepturi ipsa molestias optio provident quam quas, quod quos sint suscipit vel vitae
+                        voluptates.</p>
                 </div>
             </div>
         )

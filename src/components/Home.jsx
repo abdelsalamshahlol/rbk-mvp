@@ -8,7 +8,7 @@ class Home extends React.Component {
     render() {
         return (
             <div>
-                <h1 className="display-1">Welcome Back {this.props.email}</h1>
+                <h1 className="display-3">Welcome Back <small>{this.props.email}</small></h1>
                 <div className={"container"}>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto atque cumque, earum enim est
                         eveniet, incidunt laudantium libero odit porro quidem quisquam reiciendis rem, sequi sint? Culpa
